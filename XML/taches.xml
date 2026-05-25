@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taches SYSTEM "taches.dtd">
+<taches>
+    <tache id="T1" priorite="haute">
+        <titre>Tache 1</titre>
+        <description>description 1</description>
+        <etat>En cours</etat>
+        <dateCreation>2026-05-25</dateCreation>
+    </tache>
+    
+    <tache id="T2" priorite="moyenne">
+        <titre>Tache 2</titre>
+        <description>Description 2</description>
+        <etat>Terminée</etat>
+        <dateCreation>2026-05-24</dateCreation>
+    </tache>
+</taches>
