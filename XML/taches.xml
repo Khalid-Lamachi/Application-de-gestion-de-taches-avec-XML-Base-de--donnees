@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 <!DOCTYPE taches SYSTEM "taches.dtd">
 <taches>
     <tache id="T1" priorite="haute">
@@ -7,7 +7,6 @@
         <etat>En cours</etat>
         <dateCreation>2026-05-25</dateCreation>
     </tache>
-    
     <tache id="T2" priorite="moyenne">
         <titre>Tache 2</titre>
         <description>Description 2</description>

@@ -1,0 +1,8 @@
+# Python compilation cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite Database files (should be kept local to avoid conflicts)
+*.db
+*.sqlite
