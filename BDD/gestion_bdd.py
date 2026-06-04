@@ -49,6 +49,13 @@ def recuperer_taches():
         taches = cursor.fetchall()
     return taches
 
+def recuperer_tache_par_id(id_tache):
+    """Recupere une tache par son ID."""
+    with sqlite3.connect(DB_Path) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM taches WHERE id = ?", (id_tache,))
+        tache = cursor.fetchone()
+    return tache
 
 def modifier_tache(id_tache, titre, description, etat, priorite, date_creation):
     """Modifie une tache dans la base de données"""
@@ -65,6 +72,17 @@ def modifier_tache(id_tache, titre, description, etat, priorite, date_creation):
                 print(f"Task {id_tache} was modified successfully!")
     except sqlite3.IntegrityError as e:
         print(f"Error: Integrity constraint violated (check if priority is basse/moyenne/haute). Details: {e}")
+
+def modifier_etat_tache(id_tache, nouvel_etat):
+    """Modifie uniquement l'etat d'une tache."""
+    with sqlite3.connect(DB_Path) as conn:
+        cursor = conn.cursor()
+        cursor.execute("UPDATE taches SET etat = ? WHERE id = ?;", (nouvel_etat, id_tache))
+        conn.commit()
+        if cursor.rowcount == 0:
+            print(f"Tache {id_tache} introuvable!")
+        else:
+            print(f"Etat de la tache {id_tache} change en '{nouvel_etat}'.")
 
 
 def supprimer_tache(id_tache):
