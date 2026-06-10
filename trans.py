@@ -13,9 +13,9 @@ import webbrowser
 
 # Chemins des fichiers
 BASE_DIR = os.path.dirname(__file__)
-XML_PATH = os.path.join(BASE_DIR, "../XML/taches.xml")
+XML_PATH = os.path.join(BASE_DIR, "XML/taches.xml")
 XSL_PATH = os.path.join(BASE_DIR, "taches.xsl")
-HTML_PATH = os.path.join(BASE_DIR, "../HTML/taches.html")
+HTML_PATH = os.path.join(BASE_DIR, "HTML/taches.html")
 
 
 def transformer():
