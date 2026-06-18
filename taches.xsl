@@ -31,19 +31,19 @@
                         <td style="padding: 8px;"><xsl:value-of select="description"/></td>
                         <td style="padding: 8px;">
                             <xsl:choose>
-                                <xsl:when test="@etat = 'A faire'">
+                                <xsl:when test="etat = 'A faire'">
                                     <span style="color: black ; font-weight: bold;">
-                                        <xsl:value-of select="@etat"/>
+                                        <xsl:value-of select="etat"/>
                                     </span>
                                 </xsl:when>
-                                <xsl:when test="@etat = 'En cours'">
+                                <xsl:when test="etat = 'En cours'">
                                     <span style="color: black; font-weight: bold;">
-                                        <xsl:value-of select="@etat"/>
+                                        <xsl:value-of select="etat"/>
                                     </span>
                                 </xsl:when>
-                                <xsl:when test="@etat = 'Terminee'">
+                                <xsl:when test="etat = 'Terminee'">
                                     <span style="color: black; font-weight: bold;">
-                                        <xsl:value-of select="@etat"/>
+                                        <xsl:value-of select="etat"/>
                                     </span>
                                 </xsl:when>
                             </xsl:choose>
