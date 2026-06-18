@@ -20,7 +20,6 @@ def transformer():
     ouvrir = input("Ouvrir dans le navigateur ? (o/n) : ").strip().lower()
     if ouvrir == 'o':
         webbrowser.open(f'file:///{html_abs}')
-if __name__ == "__main__":
-    transformer()
+
 
     
