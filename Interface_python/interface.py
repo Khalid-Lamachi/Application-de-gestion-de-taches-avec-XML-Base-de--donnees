@@ -1,8 +1,6 @@
 import os
 import sys
 from datetime import date
-
-# Ajouter les dossiers au path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'BDD'))
@@ -11,10 +9,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'XSLT'))
 import gestion_bdd
 import trans
 
-
-
 def generer_id():
-    """Genere un ID unique pour une nouvelle tache."""
     taches = gestion_bdd.recuperer_taches()
     if not taches:
         return "T1"
@@ -28,7 +23,6 @@ def generer_id():
 
 
 def saisir_priorite():
-    """Demande a l'utilisateur de choisir une priorite."""
     while True:
         print("  Priorite : 1=basse, 2=moyenne, 3=haute")
         choix = input("  Choix : ").strip()
@@ -42,7 +36,6 @@ def saisir_priorite():
 
 
 def saisir_etat():
-    """Demande a l'utilisateur de choisir un etat."""
     while True:
         print("  Etat : 1=A faire, 2=En cours, 3=Terminee")
         choix = input("  Choix : ").strip()
@@ -56,8 +49,7 @@ def saisir_etat():
 
 
 def ajouter_tache():
-    """Ajouter une nouvelle tache."""
-    print("\n--- AJOUTER UNE TACHE ---")
+    print("\n Ajout d'une nouvelle tache.")
     id_tache = generer_id()
     print(f"  ID : {id_tache}")
 
@@ -76,8 +68,7 @@ def ajouter_tache():
 
 
 def lister_taches():
-    """Afficher toutes les taches."""
-    print("\n--- LISTE DES TACHES ---")
+    print("\nListe des taches")
     taches = gestion_bdd.recuperer_taches()
     if not taches:
         print("  Aucune tache.")
@@ -91,8 +82,7 @@ def lister_taches():
 
 
 def modifier_tache():
-    """Modifier une tache existante."""
-    print("\n--- MODIFIER UNE TACHE ---")
+    print("\nModifier une tache.")
     id_tache = input("  ID de la tache : ").strip().upper()
     tache = gestion_bdd.recuperer_tache_par_id(id_tache)
     if not tache:
@@ -118,8 +108,7 @@ def modifier_tache():
 
 
 def changer_etat():
-    """Changer l'etat d'une tache."""
-    print("\n--- CHANGER L'ETAT ---")
+    print("\nChanger l'etat d'une tache.")
     id_tache = input("  ID de la tache : ").strip().upper()
     tache = gestion_bdd.recuperer_tache_par_id(id_tache)
     if not tache:
@@ -133,8 +122,7 @@ def changer_etat():
 
 
 def supprimer_tache():
-    """Supprimer une tache."""
-    print("\n--- SUPPRIMER UNE TACHE ---")
+    print("\nSuprimer une tache.")
     id_tache = input("  ID de la tache : ").strip().upper()
     tache = gestion_bdd.recuperer_tache_par_id(id_tache)
     if not tache:
@@ -152,18 +140,13 @@ def supprimer_tache():
 
 def generer_html():
     """Generer la page HTML via XSLT."""
-    print("\n--- GENERER HTML (XSLT) ---")
-    # D'abord s'assurer que le XML est a jour
+    print("\nGenerer le la page html")
     gestion_bdd.exporter_bdd_en_xml()
-    # Lancer la transformation
     trans.transformer()
 
 
 def afficher_menu():
-    """Afficher le menu principal."""
-    print("\n" + "=" * 50)
-    print("  MENU PRINCIPAL - GESTIONNAIRE DE TACHES")
-    print("=" * 50)
+    print(" ~~~MENU PRINCIPAL~~~~")
     print("  1. Ajouter une tache")
     print("  2. Lister les taches")
     print("  3. Modifier une tache")
@@ -175,15 +158,8 @@ def afficher_menu():
 
 
 def main():
-    """Programme principal."""
-    print("=" * 50)
-    print("  GESTIONNAIRE DE TACHES - TO-DO LIST")
-    print("=" * 50)
-
-    # Initialiser la BDD
     gestion_bdd.init_database()
 
-    # Si BDD vide, importer depuis XML
     if not gestion_bdd.recuperer_taches():
         print("  Base vide, importation depuis XML...")
         gestion_bdd.importer_xml_en_bdd()
