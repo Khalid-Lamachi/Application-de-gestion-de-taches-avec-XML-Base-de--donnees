@@ -1,4 +1,4 @@
-<!ELEMENT taches (tache+)>
+<!ELEMENT taches (tache*)>
 <!ELEMENT tache (titre, description, etat, dateCreation)>
 <!ATTLIST tache id ID #REQUIRED priorite (basse | moyenne | haute) #REQUIRED>
 <!ELEMENT titre (#PCDATA)>
