@@ -71,10 +71,6 @@
                     </tr>
                 </xsl:for-each>
             </table>
-
-            <p style="text-align: center; margin-top: 20px; color: gray; font-size: 0.8em;">
-                Projet To-Do List XML realise par: Khalid LAMACHI, Yasser FOUDIL, Salma MOUHNI, Houda MOUJANE.
-            </p>
         </body>
     </html>
 </xsl:template>
